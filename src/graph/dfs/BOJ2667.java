@@ -1,4 +1,4 @@
-package boj.graph.bfs;
+package graph.dfs;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class Main2667 {
+public class BOJ2667 {
     static BufferedReader br;
     static int n;
     static int[] dx = {-1, 1, 0, 0};
