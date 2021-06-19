@@ -21,6 +21,10 @@ public class BOJ9019 {
         while(!q.isEmpty()) {
             int x = q.poll();
 
+            if(x == b) {
+                print(a, b);
+            }
+
             int d = x * 2;
             int s = x - 1;
             int l = (x % 1000) * 10 + (x / 1000);
@@ -78,17 +82,21 @@ public class BOJ9019 {
             q.add(a);
             check[a] = true;
             from[a] = -1;
-            bfs();
             ans = new StringBuilder();
-            while (b != a) {
-                ans.append(how[b]);
-                b = from[b];
-            }
+            bfs();
+
             bw.write(ans.reverse().toString());
             bw.write("\n");
         }
 
         bw.flush();
         bw.close();
+    }
+
+    private static void print(int a, int b) {
+        if(a != b) {
+            ans.append(how[b]);
+            print(a, from[b]);
+        }
     }
 }
