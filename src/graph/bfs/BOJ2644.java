@@ -4,8 +4,8 @@ import java.io.*;
 import java.util.*;
 
 /*
- * [BFS] 촌수계산  
- * https://www.acmicpc.net/problem/264
+ * [BFS] 촌수계산
+ * https://www.acmicpc.net/problem/2644
  */
 public class BOJ2644 {
     static class Node {
