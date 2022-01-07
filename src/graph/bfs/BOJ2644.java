@@ -49,19 +49,17 @@ public class BOJ2644 {
 
         q.add(new Node(from, to, 1));
         visited[from] = true;
-        ans = 0;
-        bfs(q);
 
-        if(ansList.size() == 0) {
+        if(!bfs(q)) {
             bw.write(String.valueOf(-1));
         } else {
-            bw.write(String.valueOf(ansList.get(0)));
+            bw.write(String.valueOf(ans));
         }
         bw.flush();
         bw.close();
     }
 
-    static void bfs(List<Node> q) {
+    static boolean bfs(List<Node> q) {
         while(!q.isEmpty()) {
             Node nowNode = ((LinkedList<Node>)q).poll();
             int from = nowNode.from;
@@ -69,7 +67,8 @@ public class BOJ2644 {
             for(int next : list[from]) {
                 if(!visited[next]) {
                     if(next == nowNode.to) {
-                        ansList.add(nowNode.dist);
+                        ans = nowNode.to;
+                        return true;
                     }
 
                     visited[next] = true;
@@ -77,5 +76,7 @@ public class BOJ2644 {
                 }
             }
         }
+
+        return false;
     }
 }
